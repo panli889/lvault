@@ -37,8 +37,7 @@ func checkMaintainerAuth(req *http.Request) bool {
 		}
 	}
 
-	domain := os.Getenv("LAIN_DOMAIN")
-	url := "http://console." + domain + "/api/v1/repos/" + ap + "/roles/"
+	url := "http://console.lain.local/api/v1/repos/" + ap + "/roles/"
 	conReq, _ := http.NewRequest("GET", url, nil)
 	conReq.Header.Set("access-token", actk)
 	resp, err := http.DefaultClient.Do(conReq)
